@@ -102,6 +102,10 @@
   background-color: var(--dc-bg) !important;
   color: var(--dc-text) !important;
 }
+/* Unread: light green tint (placed before hover/selected so those win) */
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]), tr[is="thread-card"]:is(.unread, [data-properties~="unread"]) {
+  background-color: rgba(87, 242, 135, 0.14) !important;
+}
 tr[is="thread-row"]:hover, tr[is="thread-card"]:hover {
   background-color: var(--dc-hover) !important;
 }
@@ -110,8 +114,10 @@ tr[is="thread-row"][aria-selected="true"], tr[is="thread-card"][aria-selected="t
   background-color: var(--dc-select) !important;
   color: #ffffff !important;
 }
-tr[is="thread-row"].unread .subject-line,
-tr[is="thread-row"].unread .sender-column { color: var(--dc-header) !important; font-weight: 600; /* grey, not white, like VS Code */ }
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]),
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]) td,
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]) .subject-line,
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]) .sender-column { color: #d3f9de !important; font-weight: 600; }
 
 thead, .table-header-cell, th {
   background-color: var(--dc-sidebar) !important;
@@ -165,10 +171,16 @@ menuitem:hover, menu:hover { background-color: var(--dc-accent) !important; colo
 * { scrollbar-width: thin; scrollbar-color: #424242 transparent; }
 
 /* Message list / cards / header text: soft grey instead of bright white */
-tr[is="thread-row"], tr[is="thread-row"] td, tr[is="thread-row"] .tree-view-row-cell,
-tr[is="thread-card"], tr[is="thread-card"] *, .thread-card-container, .thread-card-container *,
-.subject-line, .sender-column, .date-column, .correspondentcolumn, .tree-view-row-text {
+/* :not(tagged) so Thunderbird's tag colors stay visible */
+tr[is="thread-row"]:not([data-properties*="tag"]), tr[is="thread-row"]:not([data-properties*="tag"]) td, tr[is="thread-row"]:not([data-properties*="tag"]) .tree-view-row-cell,
+tr[is="thread-card"]:not([data-properties*="tag"]), tr[is="thread-card"]:not([data-properties*="tag"]) *, 
+tr[is="thread-row"]:not([data-properties*="tag"]) .subject-line, tr[is="thread-row"]:not([data-properties*="tag"]) .sender-column, tr[is="thread-row"]:not([data-properties*="tag"]) .date-column, tr[is="thread-row"]:not([data-properties*="tag"]) .correspondentcolumn, tr[is="thread-row"]:not([data-properties*="tag"]) .tree-view-row-text {
   color: var(--dc-text) !important;
+}
+/* Default "To Do" tag blue (#3333ff) is too dark on black: lighten it */
+tr[is="thread-row"][data-properties*="label4"], tr[is="thread-row"][data-properties*="label4"] *,
+tr[is="thread-card"][data-properties*="label4"], tr[is="thread-card"][data-properties*="label4"] * {
+  color: #7f8fff !important;
 }
 tr[is="thread-row"][aria-selected="true"], tr[is="thread-row"][aria-selected="true"] td,
 tr[is="thread-card"][aria-selected="true"], tr[is="thread-card"][aria-selected="true"] * {
@@ -182,7 +194,3 @@ tr[is="thread-card"][aria-selected="true"], tr[is="thread-card"][aria-selected="
 #folderTree li.unread > .container, #folderTree li.unread > .container .name,
 #folderTree li.selected > .container, #folderTree li.selected > .container .name { color: var(--dc-text) !important; }
 
-/* Selector-proof dimming: bright white -> light grey (0.8 * 255 = #cccccc) */
-#threadTree, thread-pane, #threadPane tree-view-table-body {
-  filter: brightness(0.8) !important;
-}

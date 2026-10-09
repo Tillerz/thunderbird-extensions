@@ -1,9 +1,12 @@
 /* VS Code Dark - userContent.css
    Place in: <profile>/chrome/userContent.css
    Darkens Thunderbird's built-in content pages (settings, account setup, address book, etc.).
+   about:message / about:3pane are deliberately NOT listed, so message bodies and inline PDFs keep their own colors.
    Message bodies are left alone so HTML emails still render correctly. */
 
-@-moz-document url-prefix("about:"), url-prefix("chrome://messenger/content/") {
+@-moz-document url-prefix("about:preferences"), url-prefix("about:addons"), url-prefix("about:accountsetup"),
+  url-prefix("about:addressbook"), url-prefix("about:support"), url-prefix("about:import"),
+  url-prefix("about:downloads"), url-prefix("about:config"), url-prefix("chrome://messenger/content/") {
   :root {
     --in-content-page-background: #1f1f1f !important;
     --in-content-page-color: #cccccc !important;
@@ -29,8 +32,7 @@
 /* Message bodies: soft grey text on the editor background, like VS Code.
    Forces light-grey text on everything in the mail (dark-on-light styling in HTML mails is flipped by Thunderbird,
    which leaves bright white). Links, quotes and selection are restyled. Remove the `body *` rule to let HTML mails keep their own colors. */
-@-moz-document url-prefix("mailbox-message:"), url-prefix("imap-message:"), url-prefix("news-message:"), url-prefix("x-moz-message:"), url-prefix("mailbox://"), url-prefix("imap://"), url-prefix("news://"), url-prefix("file:///") {
-  html { filter: brightness(0.8) !important; }
+@-moz-document url-prefix("mailbox-message:"), url-prefix("imap-message:"), url-prefix("news-message:"), url-prefix("x-moz-message:"), url-prefix("imap://"), url-prefix("news://") {
   html, body { background-color: #1f1f1f !important; }
   body, body *:not(a):not(a *) { color: #d8d8d8 !important; }
   a, a * { color: #4daafc !important; }

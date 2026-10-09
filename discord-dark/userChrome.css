@@ -100,6 +100,10 @@
   background-color: var(--dc-bg) !important;
   color: var(--dc-text) !important;
 }
+/* Unread: light green tint (placed before hover/selected so those win) */
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]), tr[is="thread-card"]:is(.unread, [data-properties~="unread"]) {
+  background-color: rgba(87, 242, 135, 0.14) !important;
+}
 tr[is="thread-row"]:hover, tr[is="thread-card"]:hover {
   background-color: var(--dc-hover) !important;
 }
@@ -109,8 +113,18 @@ tr[is="thread-row"][aria-selected="true"], tr[is="thread-card"][aria-selected="t
   color: var(--dc-header) !important;
   box-shadow: inset 3px 0 0 var(--dc-accent);
 }
-tr[is="thread-row"].unread .subject-line,
-tr[is="thread-row"].unread .sender-column { color: var(--dc-header) !important; font-weight: 600; }
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]),
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]) td,
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]) .subject-line,
+tr[is="thread-row"]:is(.unread, [data-properties~="unread"]):not([data-properties*="tag"]) .sender-column { color: #d3f9de !important; font-weight: 600; }
+
+/* Default "To Do" tag blue (#3333ff) is too dark on dark grey: lighten it */
+tr[is="thread-row"][data-properties*="label4"]:not([aria-selected="true"]),
+tr[is="thread-row"][data-properties*="label4"]:not([aria-selected="true"]) *,
+tr[is="thread-card"][data-properties*="label4"]:not([aria-selected="true"]),
+tr[is="thread-card"][data-properties*="label4"]:not([aria-selected="true"]) * {
+  color: #7f8fff !important;
+}
 
 thead, .table-header-cell, th {
   background-color: var(--dc-sidebar) !important;
