@@ -1,0 +1,41 @@
+/* VS Code Dark - userContent.css
+   Place in: <profile>/chrome/userContent.css
+   Darkens Thunderbird's built-in content pages (settings, account setup, address book, etc.).
+   Message bodies are left alone so HTML emails still render correctly. */
+
+@-moz-document url-prefix("about:"), url-prefix("chrome://messenger/content/") {
+  :root {
+    --in-content-page-background: #1f1f1f !important;
+    --in-content-page-color: #cccccc !important;
+    --in-content-box-background: #181818 !important;
+    --in-content-box-border-color: #181818 !important;
+    --in-content-border-color: #181818 !important;
+    --in-content-categories-background: #181818 !important;
+    --in-content-text-color: #cccccc !important;
+    --in-content-deemphasized-text: #9d9d9d !important;
+    --in-content-item-hover: #2a2d2e !important;
+    --in-content-item-selected: #0078d4 !important;
+    --in-content-item-selected-text: #ffffff !important;
+    --in-content-button-background: #45494e !important;
+    --in-content-button-background-hover: #5a5d5e !important;
+    --in-content-button-text-color: #ffffff !important;
+    --in-content-primary-button-background: #0078d4 !important;
+    --in-content-primary-button-background-hover: #026ec1 !important;
+    --in-content-accent-color: #0078d4 !important;
+    --in-content-link-color: #4daafc !important;
+  }
+}
+
+/* Message bodies: soft grey text on the editor background, like VS Code.
+   Forces light-grey text on everything in the mail (dark-on-light styling in HTML mails is flipped by Thunderbird,
+   which leaves bright white). Links, quotes and selection are restyled. Remove the `body *` rule to let HTML mails keep their own colors. */
+@-moz-document url-prefix("mailbox-message:"), url-prefix("imap-message:"), url-prefix("news-message:"), url-prefix("x-moz-message:"), url-prefix("mailbox://"), url-prefix("imap://"), url-prefix("news://"), url-prefix("file:///") {
+  html { filter: brightness(0.8) !important; }
+  html, body { background-color: #1f1f1f !important; }
+  body, body *:not(a):not(a *) { color: #d8d8d8 !important; }
+  a, a * { color: #4daafc !important; }
+  a:visited, a:visited * { color: #b180d7 !important; }
+  blockquote[type="cite"], blockquote[type="cite"] * { color: #9d9d9d !important; }
+  blockquote[type="cite"] { border-inline-start: 2px solid #0078d4 !important; }
+  ::selection { background: #264f78 !important; color: #ffffff !important; }
+}

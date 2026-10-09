@@ -1,0 +1,63 @@
+{
+  "manifest_version": 2,
+  "name": "VS Code Dark",
+  "version": "1.0",
+  "description": "A dark VS Code-inspired theme for Thunderbird.",
+  "browser_specific_settings": {
+    "gecko": { "id": "vscode-dark@local.theme", "strict_min_version": "115.0" }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#181818",
+      "frame_inactive": "#181818",
+      "tab_background_text": "#9d9d9d",
+      "tab_text": "#cccccc",
+      "tab_selected": "#1f1f1f",
+      "tab_line": "#0078d4",
+      "tab_loading": "#0078d4",
+      "tab_background_separator": "#181818",
+
+      "toolbar": "#1f1f1f",
+      "toolbar_text": "#cccccc",
+      "toolbar_top_separator": "#181818",
+      "toolbar_bottom_separator": "#181818",
+      "toolbar_vertical_separator": "#2b2b2b",
+
+      "toolbar_field": "#181818",
+      "toolbar_field_text": "#cccccc",
+      "toolbar_field_border": "#181818",
+      "toolbar_field_focus": "#181818",
+      "toolbar_field_text_focus": "#cccccc",
+      "toolbar_field_border_focus": "#0078d4",
+      "toolbar_field_highlight": "#0078d4",
+      "toolbar_field_highlight_text": "#ffffff",
+
+      "button_background_hover": "#37373d",
+      "button_background_active": "#45494e",
+      "icons": "#9d9d9d",
+      "icons_attention": "#0078d4",
+
+      "popup": "#1f1f1f",
+      "popup_text": "#cccccc",
+      "popup_border": "#181818",
+      "popup_highlight": "#0078d4",
+      "popup_highlight_text": "#ffffff",
+
+      "sidebar": "#181818",
+      "sidebar_text": "#9d9d9d",
+      "sidebar_border": "#181818",
+      "sidebar_highlight": "#37373d",
+      "sidebar_highlight_text": "#ffffff",
+
+      "input_background": "#181818",
+      "input_color": "#cccccc",
+      "input_border": "#181818",
+
+      "focus_outline": "#0078d4"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

@@ -1,0 +1,164 @@
+/* Discord Dark - userChrome.css
+   Requires: Settings > Config Editor > toolkit.legacyUserProfileCustomizations.stylesheets = true
+   Place in: <profile>/chrome/userChrome.css */
+
+:root {
+  --dc-bg:        #313338;
+  --dc-sidebar:   #2b2d31;
+  --dc-darkest:   #1e1f22;
+  --dc-hover:     #35373c;
+  --dc-active:    #404249;
+  --dc-text:      #dbdee1;
+  --dc-muted:     #949ba4;
+  --dc-header:    #f2f3f5;
+  --dc-accent:    #5865f2;
+  --dc-accent-hi: #4752c4;
+  --dc-border:    #1e1f22;
+
+  --layout-background-0: var(--dc-darkest) !important;
+  --layout-background-1: var(--dc-sidebar) !important;
+  --layout-background-2: var(--dc-bg) !important;
+  --layout-border-0: var(--dc-border) !important;
+  --layout-color-0: var(--dc-text) !important;
+  --layout-color-1: var(--dc-muted) !important;
+  --selected-item-color: #ffffff !important;
+  --selected-item-text-color: #ffffff !important;
+  --in-content-primary-button-background: var(--dc-accent) !important;
+  --in-content-primary-button-background-hover: var(--dc-accent-hi) !important;
+  --in-content-primary-button-text-color: #ffffff !important;
+  --in-content-accent-color: var(--dc-accent) !important;
+  --in-content-focus-outline-color: var(--dc-accent) !important;
+}
+
+/* Stop the Windows accent color from tinting the title bar / toolbars when the window is active */
+:root,
+:root:-moz-window-inactive,
+:root:not(:-moz-window-inactive) {
+  --lwt-accent-color: var(--dc-darkest) !important;
+  --lwt-accent-color-inactive: var(--dc-darkest) !important;
+  --lwt-text-color: var(--dc-text) !important;
+  --titlebar-background: var(--dc-darkest) !important;
+  --titlebar-color: var(--dc-text) !important;
+  --toolbar-bgcolor: var(--dc-bg) !important;
+  --toolbar-color: var(--dc-text) !important;
+  --toolbar-non-lwt-bgcolor: var(--dc-bg) !important;
+  --toolbar-non-lwt-textcolor: var(--dc-text) !important;
+  --unified-toolbar-background: var(--dc-bg) !important;
+  --unified-toolbar-color: var(--dc-text) !important;
+  --tabs-border-color: var(--dc-border) !important;
+  --toolbarbutton-icon-fill: var(--dc-muted) !important;
+  --toolbarbutton-hover-background: var(--dc-active) !important;
+  --toolbarbutton-active-background: #4e5058 !important;
+}
+
+#navigation-toolbox, #toolbar-menubar, #titlebar, #unifiedToolbarContainer, #unifiedToolbar,
+#tabs-toolbar, #mail-toolbox, #mail-bar3, #messageHeader toolbar, #header-view-toolbar,
+.titlebar-buttonbox-container, .titlebar-buttonbox,
+#navigation-toolbox:-moz-window-inactive, #unifiedToolbarContainer:-moz-window-inactive,
+#unifiedToolbar:-moz-window-inactive {
+  background-color: var(--dc-darkest) !important;
+  background-image: none !important;
+  color: var(--dc-text) !important;
+  appearance: none !important;
+}
+#unifiedToolbar, #header-view-toolbar, #messageHeader toolbar { background-color: var(--dc-bg) !important; }
+
+#unifiedToolbar toolbarbutton, #unifiedToolbar .unified-toolbar-button,
+#header-view-toolbar toolbarbutton, .titlebar-button {
+  color: var(--dc-text) !important;
+  -moz-context-properties: fill, stroke;
+  fill: var(--dc-muted) !important;
+}
+#unifiedToolbar .unified-toolbar-button:hover,
+#header-view-toolbar toolbarbutton:hover, .titlebar-button:hover {
+  background-color: var(--dc-active) !important;
+  color: #fff !important;
+}
+.titlebar-close:hover { background-color: #da373c !important; }
+
+/* Folder pane = Discord's server/channel list */
+#folderPane, #folderTree, #spacesToolbar {
+  background-color: var(--dc-sidebar) !important;
+  color: var(--dc-muted) !important;
+}
+#spacesToolbar { background-color: var(--dc-darkest) !important; }
+
+#folderTree li > .container:hover {
+  background-color: var(--dc-hover) !important;
+  color: var(--dc-text) !important;
+}
+#folderTree li.selected > .container,
+#folderTree li.selected:focus-within > .container {
+  background-color: var(--dc-active) !important;
+  color: var(--dc-header) !important;
+  border-radius: 4px;
+}
+#folderTree li.unread > .container { color: var(--dc-header) !important; font-weight: 600; }
+
+/* Message list */
+#threadPane, #threadTree, tree-view-table-body, .tree-view-scrollable-container {
+  background-color: var(--dc-bg) !important;
+  color: var(--dc-text) !important;
+}
+tr[is="thread-row"]:hover, tr[is="thread-card"]:hover {
+  background-color: var(--dc-hover) !important;
+}
+tr[is="thread-row"].selected, tr[is="thread-card"].selected,
+tr[is="thread-row"][aria-selected="true"], tr[is="thread-card"][aria-selected="true"] {
+  background-color: var(--dc-active) !important;
+  color: var(--dc-header) !important;
+  box-shadow: inset 3px 0 0 var(--dc-accent);
+}
+tr[is="thread-row"].unread .subject-line,
+tr[is="thread-row"].unread .sender-column { color: var(--dc-header) !important; font-weight: 600; }
+
+thead, .table-header-cell, th {
+  background-color: var(--dc-sidebar) !important;
+  color: var(--dc-muted) !important;
+  border-color: var(--dc-border) !important;
+}
+
+/* Splitters / separators */
+splitter, .splitter, hr { border-color: var(--dc-border) !important; background-color: var(--dc-border) !important; }
+
+/* Message header area */
+#messageHeader, #msgHeaderView, .message-header-container, header-container {
+  background-color: var(--dc-bg) !important;
+  color: var(--dc-text) !important;
+  border-color: var(--dc-border) !important;
+}
+
+/* Buttons */
+button.primary, .button-primary, button[default="true"] {
+  background-color: var(--dc-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 3px;
+}
+button.primary:hover, .button-primary:hover { background-color: var(--dc-accent-hi) !important; }
+
+/* Text inputs / search */
+input, textarea, search-bar, .search-bar {
+  background-color: var(--dc-darkest) !important;
+  color: var(--dc-text) !important;
+  border-color: var(--dc-darkest) !important;
+  border-radius: 4px;
+}
+input:focus, textarea:focus { border-color: var(--dc-accent) !important; }
+
+/* Menus & popups */
+menupopup, panel, .menupopup-arrowscrollbox {
+  --panel-background: #111214;
+  --panel-color: var(--dc-text);
+  --panel-border-color: var(--dc-border);
+  --arrowpanel-background: #111214;
+  --arrowpanel-color: var(--dc-text);
+  --arrowpanel-border-color: var(--dc-border);
+  --menuitem-hover-background-color: var(--dc-accent);
+  --menuitem-hover-color: #fff;
+  border-radius: 6px;
+}
+menuitem:hover, menu:hover { background-color: var(--dc-accent) !important; color: #fff !important; }
+
+/* Slim, rounded scrollbars */
+* { scrollbar-width: thin; scrollbar-color: #1a1b1e #2b2d31; }

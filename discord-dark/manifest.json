@@ -1,0 +1,63 @@
+{
+  "manifest_version": 2,
+  "name": "Discord Dark",
+  "version": "1.0",
+  "description": "A dark Discord-inspired theme for Thunderbird.",
+  "browser_specific_settings": {
+    "gecko": { "id": "discord-dark@local.theme", "strict_min_version": "115.0" }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#1e1f22",
+      "frame_inactive": "#1e1f22",
+      "tab_background_text": "#949ba4",
+      "tab_text": "#f2f3f5",
+      "tab_selected": "#313338",
+      "tab_line": "#5865f2",
+      "tab_loading": "#5865f2",
+      "tab_background_separator": "#1e1f22",
+
+      "toolbar": "#313338",
+      "toolbar_text": "#dbdee1",
+      "toolbar_top_separator": "#1e1f22",
+      "toolbar_bottom_separator": "#1e1f22",
+      "toolbar_vertical_separator": "#3f4147",
+
+      "toolbar_field": "#1e1f22",
+      "toolbar_field_text": "#dbdee1",
+      "toolbar_field_border": "#1e1f22",
+      "toolbar_field_focus": "#1e1f22",
+      "toolbar_field_text_focus": "#f2f3f5",
+      "toolbar_field_border_focus": "#5865f2",
+      "toolbar_field_highlight": "#5865f2",
+      "toolbar_field_highlight_text": "#ffffff",
+
+      "button_background_hover": "#404249",
+      "button_background_active": "#4e5058",
+      "icons": "#b5bac1",
+      "icons_attention": "#5865f2",
+
+      "popup": "#111214",
+      "popup_text": "#dbdee1",
+      "popup_border": "#1e1f22",
+      "popup_highlight": "#5865f2",
+      "popup_highlight_text": "#ffffff",
+
+      "sidebar": "#2b2d31",
+      "sidebar_text": "#949ba4",
+      "sidebar_border": "#1e1f22",
+      "sidebar_highlight": "#404249",
+      "sidebar_highlight_text": "#ffffff",
+
+      "input_background": "#1e1f22",
+      "input_color": "#dbdee1",
+      "input_border": "#1e1f22",
+
+      "focus_outline": "#5865f2"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

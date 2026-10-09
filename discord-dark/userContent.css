@@ -1,0 +1,27 @@
+/* Discord Dark - userContent.css
+   Place in: <profile>/chrome/userContent.css
+   Darkens Thunderbird's built-in content pages (settings, account setup, address book, etc.).
+   Message bodies are left alone so HTML emails still render correctly. */
+
+@-moz-document url-prefix("about:"), url-prefix("chrome://messenger/content/") {
+  :root {
+    --in-content-page-background: #313338 !important;
+    --in-content-page-color: #dbdee1 !important;
+    --in-content-box-background: #2b2d31 !important;
+    --in-content-box-border-color: #1e1f22 !important;
+    --in-content-border-color: #1e1f22 !important;
+    --in-content-categories-background: #2b2d31 !important;
+    --in-content-text-color: #dbdee1 !important;
+    --in-content-deemphasized-text: #949ba4 !important;
+    --in-content-item-hover: #35373c !important;
+    --in-content-item-selected: #5865f2 !important;
+    --in-content-item-selected-text: #ffffff !important;
+    --in-content-button-background: #4e5058 !important;
+    --in-content-button-background-hover: #6d6f78 !important;
+    --in-content-button-text-color: #ffffff !important;
+    --in-content-primary-button-background: #5865f2 !important;
+    --in-content-primary-button-background-hover: #4752c4 !important;
+    --in-content-accent-color: #5865f2 !important;
+    --in-content-link-color: #00a8fc !important;
+  }
+}
